@@ -19,3 +19,35 @@ add   "JWT": {
 
   }
 
+3-Add NewFolder Add Class for Jwt And put properties 
+    public class Jwt
+    {
+        public string Key { get; set; }
+        public string Issuer { get; set; }
+        public string Audience { get; set; }
+
+        public double DurationInDays { get; set; }
+
+    }
+    
+    
+ 4-In Startup Add configuration for Jwt
+ services.Configure<Jwt>(Configuration.GetSection("JWT"));
+    
+ 5-add Authertiction Class inhertied from identityUser
+    to  add more property
+     public class ApplicationUser:IdentityUser
+    {
+        [Required,MaxLength(30)]
+        public string FirstName { get; set; }
+        [Required,MaxLength(30)]
+        public string LastName { get; set; }
+        [Required,MaxLength(3)]
+        public int Age { get; set; }
+        [MaxLength(40)]
+        public string Country { get; set; }
+
+       
+        public  List<products> Products { get; set; }
+    }
+    
