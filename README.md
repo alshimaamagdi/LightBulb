@@ -64,6 +64,10 @@ add   "JWT": {
     }
     
     
-    7-IstartApp add configuration for New Authertiction Class
+    7-InstartApp add configuration for New Authertiction Class
      services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<Dbcontextq>();
-    
+   
+     * add configuration for Dbcontext
+    services.AddDbContext<Dbcontextq>(options =>
+            options.UseSqlServer(
+             Configuration.GetConnectionString("con")));
