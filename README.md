@@ -51,3 +51,19 @@ add   "JWT": {
         public  List<products> Products { get; set; }
     }
     
+    
+    6-do NewDbcontext class inhertied from  Dbcontext
+        public class Dbcontextq : IdentityDbContext<ApplicationUser>
+    {
+        public Dbcontextq(DbContextOptions options) : base(options)
+        {
+        }
+        public DbSet<products> products { get; set; }
+      
+      
+    }
+    
+    
+    7-IstartApp add configuration for New Authertiction Class
+     services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<Dbcontextq>();
+    
